@@ -34,7 +34,6 @@ class BlogData {
 }
 
 class Article {
-  Source? source;
   String? author;
   String? title;
   String? description;
@@ -42,9 +41,9 @@ class Article {
   String? urlToImage;
   String? publishedAt;
   String? content;
+  String? blog_id;
 
   Article({
-     this.source,
      this.author,
      this.title,
      this.description,
@@ -52,10 +51,10 @@ class Article {
      this.urlToImage,
      this.publishedAt,
      this.content,
+     this.blog_id,
   });
 
   factory Article.fromJson(Map<String, dynamic> json) => Article(
-    source: Source.fromJson(json["source"]),
     author: json["author"]??'',
     title: json["title"]??'',
     description: json["description"]??'',
@@ -63,36 +62,17 @@ class Article {
     urlToImage: json["urlToImage"]??'',
     publishedAt: json["publishedAt"]??'',
     content: json["content"]??'',
+    blog_id: json["blog_id"]??'',
   );
 
   Map<String, dynamic> toJson() => {
-    "source": source?.toJson(),
     "author": author,
     "title": title,
     "description": description,
     "url": url,
     "urlToImage": urlToImage,
     "publishedAt": publishedAt,
+    "blog_id": blog_id,
     "content": content,
-  };
-}
-
-class Source {
-  String? id;
-  String? name;
-
-  Source({
-     this.id,
-     this.name,
-  });
-
-  factory Source.fromJson(Map<String, dynamic> json) => Source(
-    id: json["id"]??'',
-    name: json["name"]??'',
-  );
-
-  Map<String, dynamic> toJson() => {
-    "id": id,
-    "name": name,
   };
 }

@@ -1,35 +1,50 @@
 
 
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
-import '../../../service/pref_manager.dart';
-import '../../../utils/app_locale.dart';
-import '../../../widget/Flutter_toast_mes.dart';
-import '../Model/bloglistModel.dart';
-import '../provider/provider.dart';
+import '../service/firebase_collection.dart';
 
 class bloglistController extends GetxController
     with StateMixin<dynamic> {
-  List<Article> ArticleList=[];
+  List ArticleList=[];
   @override
   void onInit() {
     // TODO: implement onInit
-    getblogList();
+    getBlogListByFirebase();
     super.onInit();
   }
 
-  Future<dynamic> getblogList() async {
+
+
+  Future<void> getBlogListByFirebase() async {
     try{
-      var get_articles= await Provider().getblogList();
-      print('getblogList');
-      print(get_articles);
-      if(get_articles.status=='ok'){
-        ArticleList=get_articles.articles??[];
-      }
+      ArticleList=await Firebase_collection().getAllblog();
       change(ArticleList, status: RxStatus.success());
     }catch(e){
       print(e);
-      change([], status: RxStatus.error('Please try again'));
+    change([], status: RxStatus.error('Please try again'));
     }
   }
+
+
+// Future<dynamic> getblogList() async {
+//   try{
+//     var get_articles= await Provider().getblogList();
+//     print('getblogList');
+//     print(get_articles);
+//     if(get_articles.status=='ok'){
+//       ArticleList=get_articles.articles??[];
+//       print(ArticleList.first.toJson());
+//       print(ArticleList.first.blog_id);
+//       for(int i=0;i<ArticleList.length;i++){
+//         var blog_data= ArticleList[i].toJson();
+//        await  Firebase_collection().add_blog_data(blog_data);
+//       }
+//
+//     }
+//     change(ArticleList, status: RxStatus.success());
+//   }catch(e){
+//     print(e);
+//     change([], status: RxStatus.error('Please try again'));
+//   }
+// }
 }

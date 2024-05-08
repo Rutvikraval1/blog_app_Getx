@@ -6,7 +6,10 @@ A new Flutter project.
 # ----------------------------------
 
 # Use Getx
-# Use RestAPI and etc
+# Use RestAPI
+# DeepLinking
+# Firebase
+# Share Blog using link
 
 | Blog List                                                |                       Blog Details                       |
 |----------------------------------------------------------|:--------------------------------------------------------:|

@@ -40,7 +40,10 @@ dependencies:
   fluttertoast: ^8.2.4
   shared_preferences: ^2.2.2
   intl: ^0.19.0
-
+  firebase_core: ^2.6.1
+  cloud_firestore: ^4.4.2
+  firebase_dynamic_links: ^5.4.13
+  share_plus: any
 
 dev_dependencies:
   flutter_test:

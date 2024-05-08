@@ -4,12 +4,12 @@ A new Flutter project.
 
 ## Getting Started
 # ----------------------------------
-
-# Use Getx
-# Use RestAPI
-# DeepLinking
-# Firebase
-# Share Blog using link
+[Download Demo APK](/asset/apk/app-release.apk)
+------Use Getx
+------Use RestAPI
+------DeepLinking
+------Firebase
+------Share Blog using link
 
 | Blog List                                                |                       Blog Details                       |
 |----------------------------------------------------------|:--------------------------------------------------------:|
